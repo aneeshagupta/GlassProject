@@ -1,7 +1,8 @@
 <head>
+    <title>GLASS</title>
     <style>
         body {
-            background-image: url("http://media.2oceansvibe.com/wp-content/uploads/2013/06/sunglasses-collage.jpg");
+            background-image: url("http://wallpaperscraft.com/image/39601/2048x1152.jpg");
         }
         h1 {
             color: maroon;
