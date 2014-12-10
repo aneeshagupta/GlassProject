@@ -24,17 +24,17 @@ $row = mysqli_fetch_array($results, MYSQL_ASSOC);
 ?>
 
 <form method="get" action="update.php">
-   Eye Size: <input class="title_input" type="text" name="eyeSize" value="<?php echo $row['eyeSize']; ?>" />
+    Eye Size: <input class="title_input" type="text" name="eyeSize" value="<?php echo $row['eyeSize']; ?>" />
     <br/>
-   Face Height: <input class="title_input" type="text" name="faceHeight" value="<?php echo $row['faceHeight']; ?>" />
+    Face Height: <input class="title_input" type="text" name="faceHeight" value="<?php echo $row['faceHeight']; ?>" />
     <br/>
     Face Width: <input class="title_input" type="text" name="faceWidth" value="<?php echo $row['faceWidth']; ?>" />
     <br/>
 
-</select>
-<input type="hidden" name="userName" value="<?php echo $_REQUEST['userName']; ?>"/>
-<br/>
-<input type="submit" value="Update Record"/>
+    </select>
+    <input type="hidden" name="userName" value="<?php echo $_REQUEST['userName']; ?>"/>
+    <br/>
+    <input type="submit" value="Update Record"/>
 </form>
 
 
