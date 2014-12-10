@@ -1,17 +1,7 @@
 <?php
-/*
-
-Algorithm: 
-
-Calculate face dimesnion -> assign score 
-
-Eye size narrows down, then face height narrows, then face width narrows 
-
-*/
 $conn = mysqli_connect("uscitp.com", "aneeshag_final", "Final123", "aneeshag_finalproject");
 if(mysqli_connect_errno()){
     echo "Connection failed: ". mysqli_connct_error();
-
 }
 
 $username = $_REQUEST['new_user'];
@@ -35,6 +25,10 @@ if($num!=0) {
     exit;
 }
 
+?> <head>
+    <title>GLASS</title></head>
+<?php
+
 $sql = "INSERT INTO users (username, password)
         VALUES ( '". $username ."', '" . $password ."')";
 
@@ -44,9 +38,6 @@ $results = mysqli_query($conn, $sql);
 if(!$results){
     echo "Error: " . mysqli_error($conn);
 }
-session_start();
-$_SESSION['username'] = $username;
-
 ?>
 <html>
 <html>
@@ -55,14 +46,14 @@ $_SESSION['username'] = $username;
     <title></title>
 </head>
 <body>
-<form method="get" action="insert_info.php">
-    <h3> Please enter your face information! </h3>
-    Eye Size <input type="text" name="eye_size"> <br>
-    Face Height <input type = "text" name = "face_height"> <br>
-    Face Width <input type = "text" name = "face_width"> <br>
-    <br/>
-    <input type="submit">
-
+<form method="get" action="insert_info.php"
+<h3> Please enter your face information! </h3> <br>
+Eye Size <input type="text" name="eye_size"> <br>
+Face Height <input type = "text" name = "face_height"> <br>
+Face Width <input type = "text" name = "face_width"> <br>
+<br/>
+<input type="hidden" name="username" value="<?php echo $username; ?>"/>
+<input type="submit">
 </form>
 </body>
 </html> 
