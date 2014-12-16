@@ -81,16 +81,15 @@
 
 
 
-                    $sql_sunglasses = "SELECT sunglasses.*
-          FROM sunglasses, styles, measurements, frames, brands, lenses
-            WHERE sunglasses.sunglassstyle = styles.styleid
-            AND sunglasses.sunglassbrand = brands.brandid
-            AND sunglasses.frameMaterial = frames.framesid
-            AND sunglasses.lensMaterial = lenses.lenseid
-            AND (styles.style =   '" .$user_style. "')";
+            $sql_sunglasses = "SELECT sunglasses.*
+  FROM sunglasses, styles, measurements, frames, brands, lenses
+    WHERE sunglasses.sunglassstyle = styles.styleid
+    AND sunglasses.sunglassbrand = brands.brandid
+    AND sunglasses.frameMaterial = frames.framesid
+    AND sunglasses.lensMaterial = lenses.lenseid
+    AND (styles.style =   '" .$user_style. "')";
 
             $results_glasses = mysqli_query($conn, $sql_sunglasses);
-
 
 
             ?>
@@ -113,10 +112,16 @@
                 <thead>
 
                 <tbody>
-                <?php while ($glass_row = mysqli_fetch_array($results_glasses )) {?>
+                <?php
+                $stack = array();
+                while ($glass_row = mysqli_fetch_array($results_glasses )) {?>
                     <tr>
                         <td><?php echo "Name: ". $glass_row["name"] . "   " ?></td>
-                        <td><?php echo "URL:  ". $glass_row["url"] . "   " ?></td>
+                        <td><?php
+
+                            echo "URL:  ". $glass_row["url"] . "   ";
+                            array_push($stack, $glass_row["url"] );
+                            ?></td>
 
                     </tr>
                 <?php } ?>
@@ -126,7 +131,6 @@
 
 
     </div>
-
 
 
 
