@@ -81,15 +81,15 @@
 
 
 
-            $sql_sunglasses = "SELECT sunglasses.*
-  FROM sunglasses, styles, measurements, frames, brands, lenses
-    WHERE sunglasses.sunglassstyle = styles.styleid
-    AND sunglasses.sunglassbrand = brands.brandid
-    AND sunglasses.frameMaterial = frames.framesid
-    AND sunglasses.lensMaterial = lenses.lenseid
-    AND (styles.style =   '" .$user_style. "')";
+                    $sql_sunglasses = "SELECT sunglasses.*
+          FROM sunglasses, styles, measurements, frames, brands, lenses
+            WHERE sunglasses.sunglassstyle = styles.styleid
+            AND sunglasses.sunglassbrand = brands.brandid
+            AND sunglasses.frameMaterial = frames.framesid
+            AND sunglasses.lensMaterial = lenses.lenseid
+            AND (styles.style =   '" .$user_style. "')";
 
-            $results_glasses = mysqli_query($conn, $sql_sunglasses);
+                    $results_glasses = mysqli_query($conn, $sql_sunglasses);
 
 
             ?>
